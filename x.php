@@ -1,25 +1,18 @@
 <?php
 $servername = "localhost";
-$username = "rgiorgio2024";
+$username = "root";
 $password = "";
-$dbname = "my_rgiorgio2024";
-
+$dbname = "db_forrocco";
 $name = $_POST['nome'];
 $power = $_POST['potenza'];
-
 $conn = new mysqli($servername, $username, $password, $dbname);
-
 if ($conn->connect_error) {
-    die("Connessione Fallita: " . $conn->connect_error);
+    echo "Connessione Fallita: " . $conn->connect_error;
 }
-
-$query = "INSERT INTO trattori (nome, potenza) VALUES ('$name', '$power')";
-
+$query = "INSERT INTO trattore (nome, potenza) VALUES ('$name', '$power')";
 if ($conn->query($query) === TRUE) {
-    echo "TRATTORE INSERITO CON SUCCESSO OTTIMO";
+    echo "<script>alert('TRATTORE INSERITO CON SUCCESSO OTTIMO')</script>";
 } else {
-    echo "ERRORE,RIPROVA INSERENDO LE INFORMAZIONI NEI CAMPI SOPRA";
+    echo "<script>alert('ERRORE,RIPROVA INSERENDO LE INFORMAZIONI NEI CAMPI SOPRA')</script>";    
 }
-
 $conn->close();
-?>

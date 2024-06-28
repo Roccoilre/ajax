@@ -13,9 +13,8 @@
 <div id="message"></div>
 <script>
 function inserisciDati() {
-  var nome = document.getElementById("nameInput").value;
-  var potenza = document.getElementById("powerInput").value;
-
+  var nome = encodeURIComponent(document.getElementById("nameInput").value);
+  var potenza = encodeURIComponent(document.getElementById("powerInput").value);
   var xhr = new XMLHttpRequest();
   xhr.open("POST", "x.php", true);
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -23,12 +22,16 @@ function inserisciDati() {
     if (xhr.readyState === 4) {
       if (xhr.status === 200) {
         document.getElementById("message").innerHTML = xhr.responseText;
+        alert('TRATTORE INSERITO CON SUCCESSO OTTIMO');
+        document.getElementById("nameInput").value = '';
+        document.getElementById("powerInput").value = '';
       } else {
         document.getElementById("message").innerHTML = "Errore in corso.";
+        alert('ERRORE,RIPROVA INSERENDO LE INFORMAZIONI NEI CAMPI SOPRA');
       }
     }
   };
-   xhr.send("nome=" + nome + "&potenza=" + potenza);
+  xhr.send("nome=" + nome + "&potenza=" + potenza);
 }
 </script>
 <h1>Concessionari vicini in zona &#9759;&#9759;</h1>

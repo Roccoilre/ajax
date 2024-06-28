@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AJAX</title>
+</head>
+
+<body background="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pinterest.it%2Fpin%2F559150109967802747%2F&psig=AOvVaw0hqKJ_N6BDzKbjLzvwKWvO&ust=1715272946273000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCKjY0ue__oUDFQAAAAAdAAAAABAT">
+<h1>Inserisci Nome e Potenza in CV del trattore:</h1>
+<input type="text" id="nameInput" placeholder="Nome Trattore">
+<input type="number" id="powerInput" placeholder="Potenza Trattore">
+<button id="insertButton" onclick="inserisciDati()">Inserisci</button>
+<img src="https://terraevita.edagricole.it/wp-content/uploads/sites/11/2021/07/T7HD_KeyVisual.jpg" width="336" height="280" alt="Immagine di trattore">
+<div id="message"></div>
+<script>
+function inserisciDati() {
+  var nome = document.getElementById("nameInput").value;
+  var potenza = document.getElementById("powerInput").value;
+
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "x.php", true);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4) {
+      if (xhr.status === 200) {
+        document.getElementById("message").innerHTML = xhr.responseText;
+      } else {
+        document.getElementById("message").innerHTML = "Errore in corso.";
+      }
+    }
+  };
+   xhr.send("nome=" + nome + "&potenza=" + potenza);
+}
+</script>
+<h1>Concessionari vicini in zona &#9759;&#9759;</h1>
+<iframe width="30%" height="400px" frameborder="100" allowfullscreen allow="geolocation" src="https://umap.openstreetmap.fr/it/map/mappa-senza-nome_1066133"></iframe>
+</body>
+</html>

@@ -2,39 +2,53 @@
 <html>
 <head>
 <title>AJAX</title>
+    <link href="styleindex.css" rel="stylesheet">
+    <link href="footer.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
 </head>
 
-<body background="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pinterest.it%2Fpin%2F559150109967802747%2F&psig=AOvVaw0hqKJ_N6BDzKbjLzvwKWvO&ust=1715272946273000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCKjY0ue__oUDFQAAAAAdAAAAABAT">
-<h1>Inserisci Nome e Potenza in CV del trattore:</h1>
-<input type="text" id="nameInput" placeholder="Nome Trattore">
-<input type="number" id="powerInput" placeholder="Potenza Trattore">
-<button id="insertButton" onclick="inserisciDati()">Inserisci</button>
-<img src="https://terraevita.edagricole.it/wp-content/uploads/sites/11/2021/07/T7HD_KeyVisual.jpg" width="336" height="280" alt="Immagine di trattore">
-<div id="message"></div>
-<script>
-function inserisciDati() {
-  var nome = encodeURIComponent(document.getElementById("nameInput").value);
-  var potenza = encodeURIComponent(document.getElementById("powerInput").value);
-  var xhr = new XMLHttpRequest();
-  xhr.open("POST", "x.php", true);
-  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState === 4) {
-      if (xhr.status === 200) {
-        document.getElementById("message").innerHTML = xhr.responseText;
-        alert('TRATTORE INSERITO CON SUCCESSO OTTIMO');
-        document.getElementById("nameInput").value = '';
-        document.getElementById("powerInput").value = '';
-      } else {
-        document.getElementById("message").innerHTML = "Errore in corso.";
-        alert('ERRORE,RIPROVA INSERENDO LE INFORMAZIONI NEI CAMPI SOPRA');
-      }
-    }
-  };
-  xhr.send("nome=" + nome + "&potenza=" + potenza);
-}
+<body>
+  <div id="content" style="display:none;"></div>
+  <div class="topnav">
+      <a class="active" href="index.html"><i class="fa fa-home"></i>Home</a>
+      <a href="mailto:rocco6360@gmail.com"><i class="fas fa-address-book"></i>Contattami</a>
+  </div>
+  <div class="supercontainer1">
+    <div class="input-container">
+      <p class="title-trak">Inserisci Nome e Potenza in CV del trattore:</p>
+      <input type="text" id="nameInput" placeholder="Nome Trattore">
+      <input type="number" id="powerInput" placeholder="Potenza Trattore">
+      <button id="insertButton" onclick="inserisciDati()">Inserisci</button>
+  </div>
+<script src="inserimento.js">
 </script>
-<h1>Concessionari vicini in zona &#9759;&#9759;</h1>
-<iframe width="30%" height="400px" frameborder="100" allowfullscreen allow="geolocation" src="https://umap.openstreetmap.fr/it/map/mappa-senza-nome_1066133"></iframe>
+</div>
+<div class="supercontainer2">
+<div class="concessionaria"> Concessionari vicini in zona &#9759;&#9759;</div>
+<iframe width="80%" height="700px" frameborder="100" allowfullscreen allow="geolocation" src="https://umap.openstreetmap.fr/it/map/mappa-senza-nome_1066133"></iframe>
+</div>
+<footer class="site-footer">
+  <div class="footer-container">
+      <div class="footer-column">
+          <h3>Sito</h3>
+          <p>Sviluppato da  <div class="color-red"> ROCCO GIORGIO </div></p>
+      </div>
+      <div class="footer-column">
+          <h3>Contatti</h3>
+          <ul>
+              <li>TELEFONO: <a href="tel:3662080631">3662080631</a></li>
+              <li><a href="https://wa.me/+393662080631" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+          </ul>
+      </div>
+      <div class="footer-column">
+          <h3>Seguimi su</h3>
+          <ul class="social-links">
+              <li><a href="https://github.com/Roccoilre" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
+              <li><a href="https://www.instagram.com/rocco_giorgio__/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+          </ul>
+      </div>
+  </div>
+</footer>
+
 </body>
 </html>

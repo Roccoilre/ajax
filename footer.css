@@ -1,7 +1,6 @@
 
 .site-footer {
-
-    background-color: #333;
+    background-color: green;
     color: #fff;
     padding: 40px 0;
     text-align: center;
@@ -48,49 +47,49 @@
     font-size: x-large;
 }
 
-/* Stile per i link */
+
 .footer-column a {
     color: #fff;
     text-decoration: none;
 }
 
-/* Hover effect per i link */
+
 .footer-column a:hover {
     text-decoration: underline;
 }
 
-/* Stile per i link ai social media */
+
 .social-links {
     list-style: none;
     padding: 0;
     display: flex;
-    flex-direction: column; /* Disporre i loghi in colonna */
-    align-items: center; /* Centrare i loghi */
-    gap: 15px; /* Spazio tra i loghi */
+    flex-direction: column; 
+    align-items: center; 
+    gap: 15px; 
     margin-top: 10px;
 }
 
-/* Singolo elemento della lista di link sociali */
+
 .social-links li {
     display: inline;
 }
 
-/* Stile dei link sociali */
+
 .social-links a {
     color: #fff;
     font-size: 1.5em;
     transition: color 0.3s ease;
     display: flex;
     align-items: center;
-    gap: 10px; /* Spazio tra l'icona e il testo */
+    gap: 10px; 
 }
 
-/* Hover effect per i link sociali */
+
 .social-links a:hover {
     color: #00aaff;
 }
 
-/* Sezione inferiore del footer */
+
 .footer-bottom {
     background-color: #222;
     padding: 10px 0;
@@ -99,13 +98,6 @@
 
 .footer-bottom p {
     margin: 0;
-    font-size: 0.9em; /* Dimensione del testo più piccola per il copyright */
+    font-size: 0.9em; 
 }
 
-/* Stile responsivo */
-@media (max-width: 768px) {
-    .footer-container {
-        flex-direction: column;
-        align-items: center;
-    }
-}

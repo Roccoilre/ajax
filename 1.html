@@ -7,12 +7,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
 </head>
 
-<body>
+<body onload="loader()">
   <div id="content" style="display:none;"></div>
-  <div class="topnav">
+  <navbar class="topnav">
       <a class="active" href="index.html"><i class="fa fa-home"></i>Home</a>
-      <a href="mailto:rocco6360@gmail.com"><i class="fas fa-address-book"></i>Contattami</a>
-  </div>
+      <a href="#contatti"><i class="fas fa-address-book"></i>Contattami</a>
+      <img src="logo-navbar.jpg" alt="logo">
+  </navbar>
   <div class="supercontainer1">
     <div class="input-container">
       <p class="title-trak">Inserisci Nome e Potenza in CV del trattore:</p>
@@ -20,24 +21,25 @@
       <input type="number" id="powerInput" placeholder="Potenza Trattore">
       <button id="insertButton" onclick="inserisciDati()">Inserisci</button>
   </div>
-<script src="inserimento.js">
-</script>
 </div>
 <div class="supercontainer2">
-<div class="concessionaria"> Concessionari vicini in zona &#9759;&#9759;</div>
+<div class="concessionaria" id="container"> Concessionari vicini in zona &#9759;&#9759;</div>
 <iframe width="80%" height="700px" frameborder="100" allowfullscreen allow="geolocation" src="https://umap.openstreetmap.fr/it/map/mappa-senza-nome_1066133"></iframe>
 </div>
-<footer class="site-footer">
+<footer class="site-footer" id="contatti">
   <div class="footer-container">
       <div class="footer-column">
           <h3>Sito</h3>
-          <p>Sviluppato da  <div class="color-red"> ROCCO GIORGIO </div></p>
+          <p>Sviluppato da  <div class="color-developer"> ROCCO GIORGIO </div></p>
       </div>
       <div class="footer-column">
           <h3>Contatti</h3>
           <ul>
-              <li>TELEFONO: <a href="tel:3662080631">3662080631</a></li>
-              <li><a href="https://wa.me/+393662080631" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+              <li><i class="fas fa-phone" ></i>TELEFONO: <a href="tel:3662080631">3662080631</a></li>
+              
+              <li><i class="fas fa-envelope" ></i> MAIL: <a href="mailto:rocco6360@gmail.com">rocco6360@gmail.com</a></li>
+              
+              <li><i class="fab fa-whatsapp" style="color: greenyellow;"></i><a href="https://wa.me/+393662080631" > WhatsApp</a></li>
           </ul>
       </div>
       <div class="footer-column">
@@ -47,8 +49,11 @@
               <li><a href="https://www.instagram.com/rocco_giorgio__/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
           </ul>
       </div>
-  </div>
+  </div>      
+  <div class="footer-bottom">
+    <p>&copy; 2024 Giorgio's Company. All Rights Reserved.</p>
+    </div>
 </footer>
-
+<script src="inserimento.js"></script>
 </body>
 </html>

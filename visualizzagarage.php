@@ -1,33 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>AJAX</title>
-    <link href="styleindex.css" rel="stylesheet">
-    <link href="footer.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizzazione dati da Database in Tabella</title>
+    <link rel="stylesheet" href="styleindex.css" >
+    <link rel="stylesheet" href="footer.css" >
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
 </head>
 <body>
-    <navbar class="topnav">
+<navbar class="topnav">
         <a class="active" href="index.html"><i class="fa fa-home"></i> Home</a>
         <a href="#contatti"><i class="fas fa-address-book"></i> Contattami</a>
-        <a href="#concessionari"><i class="fas fa-car"></i>Concessionari</a>
+        
         <img src="logo-navbar.jpg" alt="logo">
     </navbar>
-    <div class="supercontainer1">
-        <div class="input-container">
-            <p class="title-trak">Inserisci Nome e Potenza in CV del trattore:</p>
-            <input type="text" id="nameInput" placeholder="Nome Trattore">
-            <input type="number" id="powerInput" placeholder="Potenza Trattore">
-            <button id="insertButton" onclick="inserisciDati()">Inserisci</button>
-            <form action="visualizzagarage.php" method="post">
-                <button id="showButton" style="margin-top: 10px;">Visualizza trattori</button>    
-            </form>
+    <div class="supercontainer3">
+        <div class="container-visualizza">
+    <table>
+    <tr><th>Marca</th><th>Potenza</th></tr>
+<?php
+    session_start();
+
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "db_agritrak";
+    
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    if ($conn->connect_error) {
+        echo "Connessione fallita: " . $conn->connect_error;
+    }
+    $id_utente = $_SESSION['id_utente'];
+     
+    $sql = "SELECT marca,potenza FROM trattore where id_utente = '$id_utente' ";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        
+        while($row = $result->fetch_assoc()) {
+            echo "<tr>";
+            echo "<td>" . $row["marca"] . "</td>";
+            echo "<td>" . $row["potenza"] . "</td>";
+            echo "</tr>";
+        }
+        echo "</table>";
+    } else {
+        echo "Nessun risultato trovato";
+    }
+
+    
+    $conn->close();
+    ?>
         </div>
+
+
+
     </div>
-    <div class="supercontainer2" id="concessionari">
-        <div class="concessionaria" >Concessionari vicini in zona &#9759;&#9759;</div>
-        <iframe width="80%" height="700px" frameborder="100" allowfullscreen allow="geolocation" src="https://umap.openstreetmap.fr/it/map/mappa-senza-nome_1066133"></iframe>
-    </div>
+    
     <footer class="site-footer" id="contatti">
         <div class="footer-container">
             <div class="footer-column">
@@ -54,6 +85,5 @@
             <p>&copy; 2024 Giorgio's Company. All Rights Reserved.</p>
         </div>
     </footer>
-    <script src="inserimento.js"></script>
 </body>
 </html>

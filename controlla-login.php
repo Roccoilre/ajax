@@ -20,18 +20,21 @@ $conta = $result->num_rows;
 if ($conta == 1) {  
     $row = $result->fetch_assoc(); 
     $passc = $row['password'];  
-    $id = $row['ID_utente'];
+    $id = $row['id_utente'];
     $nome = $row['nome'];
     if (password_verify($password, $passc)) {  
         $controllo = true;        
     }     
 }     
+
 if ($controllo) {         
     session_start();  
     $_SESSION['email'] = $email;  
-    $_SESSION['ID_utente'] = $id;
+    $_SESSION['id_utente'] = $id;
     $_SESSION['nome'] = $nome;
-        header("Location: 1.html");
+    header("Location: 1.html");
 } else {        
     echo '<script>alert("Credenziali Errate"); window.location = "login.html";</script>';
 }
+
+$conn->close();

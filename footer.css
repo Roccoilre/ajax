@@ -1,4 +1,3 @@
-
 .site-footer {
     background-color: green;
     color: #fff;
@@ -6,7 +5,6 @@
     text-align: center;
     font-size: 24px; 
 }
-
 
 .footer-container {
     display: flex;
@@ -17,20 +15,16 @@
     padding: 20px;
 }
 
-
 .footer-column {
     flex: 1;
     min-width: 250px;
     margin: 20px 0;
 }
 
-
 .footer-column h3 {
     font-size: 1.2em; 
     margin-bottom: 10px;
 }
-
-
 
 .footer-column ul,
 .footer-column li {
@@ -48,18 +42,15 @@
     font-size: x-large;
 }
 
-
 .footer-column a {
     color: white;
     text-decoration: none;
     font-weight: bold;
 }
 
-
 .footer-column a:hover {
     text-decoration: underline;
 }
-
 
 .social-links {
     list-style: none;
@@ -71,11 +62,9 @@
     margin-top: 10px;
 }
 
-
 .social-links li {
     display: inline;
 }
-
 
 .social-links a {
     color: #fff;
@@ -86,11 +75,9 @@
     gap: 10px; 
 }
 
-
 .social-links a:hover {
     color: #00aaff;
 }
-
 
 .footer-bottom {
     background-color: #222;
@@ -102,4 +89,3 @@
     margin: 0;
     font-size: 0.9em; 
 }
-

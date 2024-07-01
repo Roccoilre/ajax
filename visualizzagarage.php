@@ -10,9 +10,10 @@
 </head>
 <body>
 <navbar class="topnav">
-        <a class="active" href="index.html"><i class="fa fa-home"></i> Home</a>
+        <a class="active" href="1.html"><i class="fa fa-home"></i> Home </a>
         <a href="#contatti"><i class="fas fa-address-book"></i> Contattami</a>
-        
+        <a  href="visualizzagarage.php"><i class="fas fa-tractor"></i> Visualizza GARAGE </a>
+        <a href="logout.php"><i class="fas fa-sign-out-alt icon"></i>Logout</a>
         <img src="logo-navbar.jpg" alt="logo">
     </navbar>
     <div class="supercontainer3">
@@ -34,7 +35,7 @@
     }
     $id_utente = $_SESSION['id_utente'];
      
-    $sql = "SELECT marca,potenza FROM trattore where id_utente = '$id_utente' ";
+    $sql = "SELECT marca,potenza FROM trattore where id_utente = '$id_utente'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -49,16 +50,10 @@
     } else {
         echo "Nessun risultato trovato";
     }
-
-    
     $conn->close();
     ?>
-        </div>
-
-
-
     </div>
-    
+    </div>
     <footer class="site-footer" id="contatti">
         <div class="footer-container">
             <div class="footer-column">
